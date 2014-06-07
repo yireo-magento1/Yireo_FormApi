@@ -1,0 +1,25 @@
+<?php
+/**
+ * Yireo FormApi for Magento
+ *
+ * @package     Yireo_FormApi
+ * @author      Yireo (http://www.yireo.com/)
+ * @copyright   Copyright (c) 2012 Yireo (http://www.yireo.com/)
+ * @license     Open Software License
+ */
+
+$field = $this->getField();
+$attributes = $field->getAttributes();
+$options = $field->getSelectOptions();
+?>
+<select <?php echo Mage::helper('formapi/field')->toAttributeString($attributes); ?>>
+    <?php foreach($options as $option) : ?>
+    <option value="<?php echo $option['value']; ?>"<?php echo $option['selected']; ?>><?php echo $option['label']; ?></option>
+    <?php endforeach; ?>
+</select>
+
+<?php if($field->getParam('show_description', 1) && $field->hasData('description')) : ?>
+<div class="description">
+    <?php echo $field->getData('description'); ?>
+</div>
+<?php endif; ?>

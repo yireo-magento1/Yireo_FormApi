@@ -1,0 +1,39 @@
+<?php
+/**
+ * Yireo FormApi for Magento
+ *
+ * @package     Yireo_FormApi
+ * @author      Yireo (http://www.yireo.com/)
+ * @copyright   Copyright (c) 2012 Yireo (http://www.yireo.com/)
+ * @license     Open Software License
+ */
+
+$form = $this->getForm();
+?>
+<form action="<?php echo $form->getPostUrl(); ?>" method="post" name="<?php echo $form->getFormName(); ?>" id="<?php echo $form->getFormId(); ?>">
+
+    <?php foreach($form->getFieldsets() as $fieldset) : ?>
+        <?php echo Mage::helper('formapi/template')->getFieldsetBlock($fieldset); ?>
+    <?php endforeach; ?>
+
+    <?php echo $this->getBlockHtml('formkey'); ?>
+</form>
+
+<script type="text/javascript">
+    function formApiSaveAndContinueEdit(formName, actionUrl) {
+        form = document.getElementById(formName);
+        form.action = actionUrl;
+        form.submit();
+    }
+
+    function formApiDelete(formName, actionUrl) {
+        var answer = confirm('<?php echo $this->__('Are you sure you want to delete this?'); ?>');
+        if(answer) {
+            form = document.getElementById(formName);
+            form.action = actionUrl;
+            form.submit();
+            return true;
+        }
+        return false;
+    }
+</script>

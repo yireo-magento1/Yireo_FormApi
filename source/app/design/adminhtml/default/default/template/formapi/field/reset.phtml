@@ -1,0 +1,20 @@
+<?php
+/**
+ * Yireo FormApi for Magento
+ *
+ * @package     Yireo_FormApi
+ * @author      Yireo (http://www.yireo.com/)
+ * @copyright   Copyright (c) 2012 Yireo (http://www.yireo.com/)
+ * @license     Open Software License
+ */
+
+$field = $this->getField();
+$attributes = $field->getAttributes();
+?>
+<button type="reset" title="<?php echo $attributes['label']; ?>" class="<?php echo $attributes['class']; ?>">
+    <span>
+        <span>
+            <?php echo $attributes['label']; ?>
+        </span>
+    </span>
+</button>

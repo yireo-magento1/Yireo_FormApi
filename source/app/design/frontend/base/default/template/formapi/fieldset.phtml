@@ -1,0 +1,22 @@
+<?php
+/**
+ * Yireo FormApi for Magento
+ *
+ * @package     Yireo_FormApi
+ * @author      Yireo (http://www.yireo.com/)
+ * @copyright   Copyright (c) 2012 Yireo (http://www.yireo.com/)
+ * @license     Open Software License
+ */
+
+$fieldset = $this->getFieldset();
+?>
+<div class="fieldset">
+    <h2 class="legend"><?php echo $fieldset->getLabel(); ?></h2>
+    <ul class="form-list">
+        <?php foreach($fieldset->getFields() as $field) : ?>
+        <li class="fields field-<?php echo $field->getType(); ?>">
+            <?php echo Mage::helper('formapi/template')->getFieldBlock($field); ?>
+        </li>
+        <?php endforeach; ?>
+    </ul>
+</div>

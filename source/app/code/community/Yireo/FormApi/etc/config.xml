@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Yireo FormApi for Magento
+ *
+ * @package     Yireo_FormApi
+ * @author      Yireo (http://www.yireo.com/)
+ * @copyright   Copyright (C) 2014 Yireo (http://www.yireo.com/)
+ * @license     Open Source License (OSL v3)
+ */
+-->
+<config>
+
+    <modules>
+        <Yireo_FormApi>
+            <version>0.5.1</version>
+        </Yireo_FormApi>
+    </modules>
+
+    <global>
+        <blocks>
+            <formapi>
+                <class>Yireo_FormApi_Block</class>
+            </formapi>
+        </blocks>
+
+        <helpers>
+            <formapi>
+                <class>Yireo_FormApi_Helper</class>
+            </formapi>
+        </helpers>
+
+        <controllers>
+            <formapi>
+                <class>Yireo_FormApi_Controllers</class>
+            </formapi>
+        </controllers>
+
+        <models>
+            <formapi>
+                <class>Yireo_FormApi_Model</class>
+            </formapi>
+        </models>
+	</global>
+
+    <frontend>
+        <layout>
+            <updates>
+                <formapi>
+                    <file>formapi.xml</file>
+                </formapi>
+            </updates>
+        </layout>
+    </frontend>
+</config>

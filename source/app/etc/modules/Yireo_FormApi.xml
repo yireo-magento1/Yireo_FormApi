@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * FormApi-module for Magento 
+ *
+ * @package     Yireo_FormApi
+ * @author      Yireo (http://www.yireo.com/)
+ * @copyright   Copyright (c) 2004 Yireo (http://www.yireo.com/)
+ * @license     Open Software License
+ */
+-->
+<config>
+    <modules>
+        <Yireo_FormApi>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Yireo_FormApi>
+    </modules>
+</config>

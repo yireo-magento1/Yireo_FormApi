@@ -1,0 +1,36 @@
+<?php
+/**
+ * Yireo FormApi for Magento
+ *
+ * @package     Yireo_FormApi
+ * @author      Yireo (http://www.yireo.com/)
+ * @copyright   Copyright (c) 2012 Yireo (http://www.yireo.com/)
+ * @license     Open Software License
+ */
+
+$field = $this->getField();
+$attributes = $field->getAttributes();
+$params = $field->getParams();
+$currentFile = $field->getCurrentFile();
+?>
+
+<?php if(!empty($currentFile)) : ?>
+<div class="current-file">
+    <span><?php echo $this->__('Current file'); ?>: </span>
+    <a href="<?php echo $currentFile['url']; ?>"><?php echo $currentFile['filename']; ?></a>
+</div>
+<?php endif; ?>
+
+<?php if(!empty($params['extensions'])) : ?>
+<div class="allowed-extensions">
+    <span><?php echo $this->__('Allowed extenions'); ?>: </span><?php echo $params['extensions']; ?>
+</div>
+<?php endif; ?>
+
+<input <?php echo Mage::helper('formapi/field')->toAttributeString($attributes); ?> />
+
+<?php if($field->getParam('show_description', 1) && $field->hasData('description')) : ?>
+<div class="description">
+    <?php echo $field->getData('description'); ?>
+</div>
+<?php endif; ?>

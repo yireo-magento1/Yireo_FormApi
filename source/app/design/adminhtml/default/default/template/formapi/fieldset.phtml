@@ -1,0 +1,45 @@
+<?php
+/**
+ * Yireo FormApi for Magento
+ *
+ * @package     Yireo_FormApi
+ * @author      Yireo (http://www.yireo.com/)
+ * @copyright   Copyright (c) 2012 Yireo (http://www.yireo.com/)
+ * @license     Open Software License
+ */
+
+$fieldset = $this->getFieldset();
+?>
+<?php if($fieldset->getName() == 'hidden'): ?>
+<?php foreach($fieldset->getFields() as $field) : ?>
+    <?php echo $field->getHtml(); ?>
+<?php endforeach; ?>
+<?php else: ?>
+<div class="entry-edit">
+    <div class="entry-edit-head">
+        <h4 class="icon-head head-edit-form fieldset-legend"><?php echo $fieldset->getLabel(); ?></h4>
+    </div>
+    <div id="group_fields4" class="fieldset fieldset-wide">
+        <div class="hor-scroll">
+            <table cellspacing="0" class="form-list">
+                <tbody>
+                <?php foreach($fieldset->getFields() as $field) : ?>
+                    <?php if($field->getType() == 'hidden'): ?>
+                    <?php echo $field->getHtml(); ?>
+                    <?php else: ?>
+                    <tr>
+                        <td class="label label-<?php echo $field->getType(); ?>">
+                            <label for="<?php echo $field->getData('id'); ?>"><?php echo $field->getLabel(); ?></label>
+                        </td>
+                        <td class="value value-<?php echo $field->getType(); ?>">
+                            <?php echo $field->getHtml(); ?>
+                        </td>
+                    </tr>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<?php endif; ?>

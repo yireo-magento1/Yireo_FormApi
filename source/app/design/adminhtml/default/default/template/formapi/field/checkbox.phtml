@@ -1,0 +1,22 @@
+<?php
+/**
+ * Yireo FormApi for Magento
+ *
+ * @package     Yireo_FormApi
+ * @author      Yireo (http://www.yireo.com/)
+ * @copyright   Copyright (c) 2012 Yireo (http://www.yireo.com/)
+ * @license     Open Software License
+ */
+
+$field = $this->getField();
+$attributes = $field->getAttributes();
+$params = $field->getParams();
+?>
+<?php if(!empty($params['text'])) : ?>
+<div class="checkbox-text">
+    <?php echo $params['text']; ?>
+</div>
+<?php endif; ?>
+
+<input <?php echo Mage::helper('formapi/field')->toAttributeString($attributes); ?> />
+<span class="label"><label for="<?php echo $attributes['id']; ?>"><?php echo $field->getDescription(); ?></label></span>

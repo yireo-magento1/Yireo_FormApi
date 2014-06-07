@@ -1,0 +1,28 @@
+<?php
+/**
+ * Yireo FormApi for Magento
+ *
+ * @package     Yireo_FormApi
+ * @author      Yireo (http://www.yireo.com/)
+ * @copyright   Copyright (c) 2012 Yireo (http://www.yireo.com/)
+ * @license     Open Software License
+ */
+
+$field = $this->getField();
+$attributes = $field->getAttributes();
+$options = $field->getRadioOptions();
+?>
+<ul class="options-list">
+    <?php foreach($options as $option) : ?>
+    <li>
+        <input id="<?php echo $option['id']; ?>" value="<?php echo $option['value']; ?>"<?php echo $option['selected']; ?> />
+        <span class="label"><label for="<?php echo $option['id']; ?>"><?php echo $option['label']; ?></label></span>
+    </li>';
+    <?php endforeach; ?>
+</ul>
+
+<?php if($field->getParam('show_description', 1) && $field->hasData('description')) : ?>
+<div class="description">
+    <?php echo $field->getData('description'); ?>
+</div>
+<?php endif; ?>

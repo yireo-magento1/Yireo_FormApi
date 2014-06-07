@@ -1,0 +1,30 @@
+ul.options-list li {
+    float:left;
+}
+
+ul.options-list:after {
+    clear:both;
+}
+
+
+
+li.field-checkbox div.field {
+    width: 100%;
+}
+
+li.field-checkbox div.field div.input-box {
+    width: 100%;
+}
+
+li.field-checkbox input.input-checkbox {
+    text-align: left;
+}
+
+li.field-checkbox div.checkbox-text {
+    height:250px;
+    overflow:auto;
+    border: 1px solid #e1e1e1;
+    background-color: #fffde4;
+    padding: 10px;
+    margin-bottom: 5px;
+}
