@@ -148,6 +148,10 @@ class Yireo_FormApi_Model_Form_Field_File extends Yireo_FormApi_Model_Form_Field
      */
     public function clean($existing = true)
     {
+        if(!isset($this->upload['tmp_name'])) {
+            return false;
+        }
+
         if(file_exists($this->upload['tmp_name'])) {
             @unlink($this->upload['tmp_name']);
         }
