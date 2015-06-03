@@ -30,6 +30,10 @@ $options = $field->getSelectOptions();
 
 <?php if($field->getParam('show_description', 1) && $field->hasData('description')) : ?>
 <div class="description">
-    <?php echo $field->getData('description'); ?>
+    <p class="note">
+        <span>
+           <?php echo $field->getData('description'); ?>
+        </span>
+    </p>
 </div>
 <?php endif; ?>
