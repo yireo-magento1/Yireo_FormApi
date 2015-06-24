@@ -10,6 +10,8 @@
 
 class Yireo_FormApi_Model_Form_Field_Store extends Yireo_FormApi_Model_Form_Field_Select
 {
+    protected $template = 'formapi/field/store.phtml';
+
     public function getAttributes()
     {
         $attributes = parent::getAttributes();

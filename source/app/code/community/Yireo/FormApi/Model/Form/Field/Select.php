@@ -10,12 +10,18 @@
 
 class Yireo_FormApi_Model_Form_Field_Select extends Yireo_FormApi_Model_Form_Field_Abstract
 {
+    protected $template = 'formapi/field/select.phtml';
+
     public function getHtml()
     {
         $attributes = $this->getAttributes();
         $attributes['name'] = $this->getData('name');
         $attributes['id'] = $this->getData('id');
         $attributes['multiple'] = $this->getData('multiple');
+
+        if((bool)$attributes['multiple']) {
+            //$attributes['name'] = $attribute['name'][]; // @todo: Does not work yet
+        }
 
         $class = $this->getData('class');
         $class[] = 'input-select';
@@ -25,18 +31,34 @@ class Yireo_FormApi_Model_Form_Field_Select extends Yireo_FormApi_Model_Form_Fie
 
         $options = $this->getOptions();
         foreach($options as $optionId => $option) {
-
-            if($value === $option['value']) {
-                $option['selected'] = ' selected="selected"';
-            } else {
-                $option['selected'] = '';
-            }
-
+            $option = $this->matchOption($option, $value);
             $options[$optionId] = $option;
         }
 
         $this->setSelectOptions($options);
         $this->setAttributes($attributes);
-        return $this->getBlockHtml('formapi/field/select.phtml');
+        return $this->getBlockHtml($this->template);
+    }
+
+    protected function matchOption($option, $value)
+    {
+        if(is_array($option['value'])) {
+            foreach($option['value'] as $suboptionIndex => $suboption) {
+                $suboption = $this->matchOption($suboption, $value);
+                $option['value'][$suboptionIndex] = $suboption;
+            }
+        }
+
+        if(is_array($value) && in_array($option['value'], $value)) {
+            $option['selected'] = ' selected="selected"';
+
+        } elseif($value === $option['value']) {
+            $option['selected'] = ' selected="selected"';
+
+        } else {
+            $option['selected'] = '';
+        }
+
+        return $option;
     }
 }
