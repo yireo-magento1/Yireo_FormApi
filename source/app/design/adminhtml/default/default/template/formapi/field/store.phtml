@@ -1,0 +1,41 @@
+<?php
+/**
+ * Yireo FormApi for Magento
+ *
+ * @package     Yireo_FormApi
+ * @author      Yireo (http://www.yireo.com/)
+ * @copyright   Copyright (c) 2012 Yireo (http://www.yireo.com/)
+ * @license     Open Software License
+ */
+
+$field = $this->getField();
+$attributes = $field->getAttributes();
+$options = $field->getSelectOptions();
+?>
+<div class="store-scope">
+<select size="10" <?php echo Mage::helper('formapi/field')->toAttributeString($attributes); ?>>
+<?php foreach($options as $option) : ?>
+    <?php if(is_array($option['value'])) : ?>
+        <optgroup label="<?php echo $option['label']; ?>">
+        <?php foreach($option['value'] as $subOption) : ?>
+            <?php if(!is_array($subOption['value'])) : ?>
+            <option value="<?php echo $subOption['value']; ?>"<?php echo $subOption['selected']; ?>><?php echo $subOption['label']; ?></option>
+            <?php endif;?>
+        <?php endforeach; ?>
+        </optgroup>
+    <?php else: ?>
+    <option value="<?php echo $option['value']; ?>"<?php echo $option['selected']; ?>><?php echo $option['label']; ?></option>
+    <?php endif;?>
+<?php endforeach; ?>
+</select>
+</div>
+
+<?php if($field->getParam('show_description', 1) && $field->hasData('description')) : ?>
+<div class="description">
+    <p class="note">
+        <span>
+           <?php echo $field->getData('description'); ?>
+        </span>
+    </p>
+</div>
+<?php endif; ?>
