@@ -21,6 +21,13 @@ class Yireo_FormApi_Model_Form_Field_CmsPage extends Yireo_FormApi_Model_Form_Fi
             );
         }
 
+        if ($this->getData('empty') == 1) {
+            array_unshift($options, array(
+                'value' => 0,
+                'label' => Mage::helper('formapi')->__('None'),
+            ));
+        }
+
         return $options;
     }
 }

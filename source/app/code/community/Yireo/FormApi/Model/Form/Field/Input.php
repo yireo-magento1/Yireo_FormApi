@@ -10,6 +10,18 @@
 
 class Yireo_FormApi_Model_Form_Field_Input extends Yireo_FormApi_Model_Form_Field_Abstract
 {
+    /**
+     * Template file of this form field
+     *
+     * @var string
+     */
+    protected $template = 'formapi/field/input.phtml';
+
+    /**
+     * Return the HTML of this form field
+     *
+     * @return string
+     */
     public function getHtml()
     {
         // Construct the attributes
@@ -29,6 +41,6 @@ class Yireo_FormApi_Model_Form_Field_Input extends Yireo_FormApi_Model_Form_Fiel
 
         // Prepare block output
         $this->setAttributes($attributes);
-        return $this->getBlockHtml('formapi/field/input.phtml');
+        return $this->getBlockHtml($this->template);
     }
 }

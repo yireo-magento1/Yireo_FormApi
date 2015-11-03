@@ -10,18 +10,24 @@
 
 class Yireo_FormApi_Model_Form_Field_Select extends Yireo_FormApi_Model_Form_Field_Abstract
 {
+    /**
+     * Template file of this form field
+     *
+     * @var string
+     */
     protected $template = 'formapi/field/select.phtml';
 
+    /**
+     * Return the HTML of this form field
+     *
+     * @return string
+     */
     public function getHtml()
     {
         $attributes = $this->getAttributes();
         $attributes['name'] = $this->getData('name');
         $attributes['id'] = $this->getData('id');
         $attributes['multiple'] = $this->getData('multiple');
-
-        if((bool)$attributes['multiple']) {
-            //$attributes['name'] = $attribute['name'][]; // @todo: Does not work yet
-        }
 
         $class = $this->getData('class');
         $class[] = 'input-select';
@@ -37,10 +43,19 @@ class Yireo_FormApi_Model_Form_Field_Select extends Yireo_FormApi_Model_Form_Fie
 
         $this->setSelectOptions($options);
         $this->setAttributes($attributes);
+
         return $this->getBlockHtml($this->template);
     }
 
-    protected function matchOption($option, $value)
+    /**
+     * Check whether a certain option matches the predefined value
+     *
+     * @param $option
+     * @param $value
+     *
+     * @return mixed
+     */
+    protected function matchOption($option, $value = '')
     {
         if(is_array($option['value'])) {
             foreach($option['value'] as $suboptionIndex => $suboption) {

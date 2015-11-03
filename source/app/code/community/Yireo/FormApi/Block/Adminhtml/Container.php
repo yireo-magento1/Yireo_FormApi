@@ -51,7 +51,6 @@ class Yireo_FormApi_Block_Adminhtml_Container extends Mage_Adminhtml_Block_Widge
     /**
      * Method to get the form-name (@todo: or form-ID?)
      *
-     * @return null
      */
     public function getFormName()
     {

@@ -10,12 +10,12 @@
 
 class Yireo_FormApi_Controller_Adminhtml_Generic extends Mage_Adminhtml_Controller_Action
 {
-    /*
+    /**
      * @var $overviewBlock Block showing the overview of all items
      */
     protected $overviewBlock = null;
 
-    /*
+    /**
      * @var $editBlock Block showing the edit-page for an item
      */
     protected $editBlock = null;
@@ -23,9 +23,6 @@ class Yireo_FormApi_Controller_Adminhtml_Generic extends Mage_Adminhtml_Controll
     /**
      * Overview page
      *
-     * @access public
-     * @param null
-     * @return null
      */
     public function indexAction()
     {
@@ -37,9 +34,6 @@ class Yireo_FormApi_Controller_Adminhtml_Generic extends Mage_Adminhtml_Controll
     /**
      * Alias for overview
      *
-     * @access public
-     * @param null
-     * @return null
      */
     public function gridAction()
     {
@@ -49,12 +43,12 @@ class Yireo_FormApi_Controller_Adminhtml_Generic extends Mage_Adminhtml_Controll
     /**
      * Edit page
      *
-     * @access public
-     * @param null
-     * @return null
      */
     public function editAction()
     {
+        $handle = 'formapi_edit';
+        $this->getLayout()->getUpdate()->addHandle($handle);
+
         $this->_initAction()
             ->_addContent($this->getLayout()->createBlock($this->editBlock))
             ->renderLayout();
@@ -63,39 +57,30 @@ class Yireo_FormApi_Controller_Adminhtml_Generic extends Mage_Adminhtml_Controll
     /**
      * Apply action
      *
-     * @access public
-     * @param null
-     * @return null
      */
     public function applyAction()
     {
         $id = $this->storeAction();
         if($id > 0) {
-            $this->_redirect('*/*/edit', array('id' => $id));
+            $this->_redirect('*/**/edit', array('id' => $id));
         } else {
-            $this->_redirect('*/*/index');
+            $this->_redirect('*/**/index');
         }
     }
 
     /**
      * Save action
      *
-     * @access public
-     * @param null
-     * @return null
      */
     public function saveAction()
     {
         $this->storeAction();
-        $this->_redirect('*/*/index');
+        $this->_redirect('*/**/index');
     }
 
     /**
      * Store action
      *
-     * @access public
-     * @param null
-     * @return null
      */
     public function storeAction()
     {
@@ -106,15 +91,12 @@ class Yireo_FormApi_Controller_Adminhtml_Generic extends Mage_Adminhtml_Controll
     /**
      * Delete action
      *
-     * @access public
-     * @param null
-     * @return null
      */
     public function deleteAction()
     {
         Mage::getModel('adminhtml/session')->addNotice($this->__('Controller::deleteAction is not implemented'));
 
         // Redirect
-        $this->_redirect('identificationrequired/admin/index');
+        $this->_redirect('adminhtml/identificationrequired/index');
     }
 }

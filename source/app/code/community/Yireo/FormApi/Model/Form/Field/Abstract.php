@@ -128,6 +128,13 @@ class Yireo_FormApi_Model_Form_Field_Abstract extends Varien_Object
         return $this->attributes;
     }
 
+    public function getAttribute($name)
+    {
+        if (isset($this->attributes[$name])) {
+            return $this->attributes[$name];
+        }
+    }
+
     public function addParam($name, $value)
     {
         $this->params[$name] = $value;

@@ -16,7 +16,6 @@ class Yireo_FormApi_Controller_Frontend_Form extends Mage_Core_Controller_Front_
     /**
      * Method to return the path to the XML-formfile
      *
-     * @return null
      */
     protected function getFormXml()
     {

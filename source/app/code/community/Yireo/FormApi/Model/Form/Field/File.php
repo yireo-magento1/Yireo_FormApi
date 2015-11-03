@@ -21,7 +21,7 @@ class Yireo_FormApi_Model_Form_Field_File extends Yireo_FormApi_Model_Form_Field
     protected $destinationFile = null;
 
     /**
-     * @return null
+     *
      */
     public function getPostValue()
     {

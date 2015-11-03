@@ -15,7 +15,7 @@ class Yireo_FormApi_Model_Form_Fieldset
      */
     protected $name = null;
 
-    /*
+    /**
     * Array of Yireo_FormApi_Model_Form_Field_* objects
     */
     /**
@@ -24,7 +24,7 @@ class Yireo_FormApi_Model_Form_Fieldset
     protected $fields = array();
 
     /**
-     * @return null
+     *
      */
     public function getName()
     {
@@ -32,7 +32,7 @@ class Yireo_FormApi_Model_Form_Fieldset
     }
 
     /**
-     * @param null $name
+     *  $name
      */
     public function setName($name = null)
     {
@@ -40,7 +40,7 @@ class Yireo_FormApi_Model_Form_Fieldset
     }
 
     /**
-     * @return null|string
+     * |string
      */
     public function getLabel()
     {
@@ -56,7 +56,7 @@ class Yireo_FormApi_Model_Form_Fieldset
     }
 
     /**
-     * @param null $label
+     *  $label
      */
     public function setLabel($label = null)
     {

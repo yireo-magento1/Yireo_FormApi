@@ -11,6 +11,10 @@
 $field = $this->getField();
 $attributes = $field->getAttributes();
 $options = $field->getSelectOptions();
+
+if (!empty($attributes['multiple'])) {
+    $attributes['name'] .= '[]';
+}
 ?>
 <div class="store-scope">
 <select size="10" <?php echo Mage::helper('formapi/field')->toAttributeString($attributes); ?>>
