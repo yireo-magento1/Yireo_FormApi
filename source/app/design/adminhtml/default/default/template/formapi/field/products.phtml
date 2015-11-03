@@ -1,0 +1,40 @@
+<?php
+/**
+ * Yireo FormApi for Magento
+ *
+ * @package     Yireo_FormApi
+ * @author      Yireo (http://www.yireo.com/)
+ * @copyright   Copyright (c) 2012 Yireo (http://www.yireo.com/)
+ * @license     Open Software License
+ */
+
+$field = $this->getField();
+$attributes = $field->getAttributes();
+
+$action = 'YireoFormApiProducts.postAction(\'' . Mage::getUrl(
+        'adminhtml/promo_widget/chooser/attribute/sku/form/rule_conditions_fieldset',
+        array('_secure' => Mage::app()->getStore()->isAdminUrlSecure())
+    ) . '?isAjax=true\', \''. $attributes['id'] . '\')';
+?>
+    <button onclick="<?= $action ?>; return false;" class="button rule-chooser-trigger">
+        <span>
+            <span id="choose_product_button">
+                <?= $this->__('Select Products') ?>
+            </span>
+        </span>
+    </button>
+
+<fieldset id="rule_conditions_fieldset">
+    <input <?= Mage::helper('formapi/field')->toAttributeString($attributes) ?> />
+    <div id="product_container"></div>
+</fieldset>
+
+<?php if($field->getParam('show_description', 1) && $field->hasData('description')) : ?>
+    <div class="description">
+        <p class="note">
+        <span>
+           <?= $field->getData('description') ?>
+        </span>
+        </p>
+    </div>
+<?php endif; ?>
