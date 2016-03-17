@@ -1,0 +1,10 @@
+# Modman file
+source/app/code/community/Yireo/FormApi                         app/code/community/Yireo/FormApi
+source/app/etc/modules/Yireo_FormApi.xml                        app/etc/modules/Yireo_FormApi.xml
+source/app/design/frontend/base/default/layout/formapi.xml      app/design/frontend/base/default/layout/formapi.xml
+source/app/design/frontend/base/default/template/formapi        app/design/frontend/base/default/template/formapi
+source/app/design/adminhtml/default/default/template/formapi    app/design/adminhtml/default/default/template/formapi
+source/skin/frontend/base/default/css/formapi.css               skin/frontend/base/default/css/formapi.css
+source/skin/adminhtml/default/default/images/formapi            skin/adminhtml/default/default/images/formapi
+source/skin/adminhtml/default/default/js/formapi                skin/adminhtml/default/default/js/formapi
+source/skin/adminhtml/default/default/css/formapi               skin/adminhtml/default/default/css/formapi
