@@ -3,8 +3,8 @@
  * Yireo FormApi
  *
  * @package     Yireo_FormApi
- * @author      Yireo (http://www.yireo.com/)
- * @copyright   Copyright 2015 Yireo (http://www.yireo.com/)
+ * @author      Yireo (https://www.yireo.com/)
+ * @copyright   Copyright 2015 Yireo (https://www.yireo.com/)
  * @license     Open Source License (OSL v3)
  */
 
@@ -62,9 +62,9 @@ class Yireo_FormApi_Controller_Adminhtml_Generic extends Mage_Adminhtml_Controll
     {
         $id = $this->storeAction();
         if($id > 0) {
-            $this->_redirect('*/**/edit', array('id' => $id));
+            $this->_redirect('*/*/edit', array('id' => $id));
         } else {
-            $this->_redirect('*/**/index');
+            $this->_redirect('*/*/index');
         }
     }
 
@@ -75,7 +75,7 @@ class Yireo_FormApi_Controller_Adminhtml_Generic extends Mage_Adminhtml_Controll
     public function saveAction()
     {
         $this->storeAction();
-        $this->_redirect('*/**/index');
+        $this->_redirect('*/*/index');
     }
 
     /**

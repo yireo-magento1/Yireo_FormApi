@@ -3,8 +3,8 @@
  * Yireo FormApi for Magento
  *
  * @package     Yireo_FormApi
- * @author      Yireo (http://www.yireo.com/)
- * @copyright   Copyright 2015 Yireo (http://www.yireo.com/)
+ * @author      Yireo (https://www.yireo.com/)
+ * @copyright   Copyright 2015 Yireo (https://www.yireo.com/)
  * @license     Open Source License (OSL v3)
  */
 
@@ -32,9 +32,13 @@ class Yireo_FormApi_Helper_Content extends Mage_Core_Helper_Abstract
             $page = Mage::getStoreConfig($match[1]);
         }
 
+        if (empty($page)) {
+            return;
+        }
+
         $pageModel = Mage::getSingleton('cms/page')->setStoreId(Mage::app()->getStore()->getId())->load($page);
         if(!$pageModel->getPageId() > 0) {
-            Mage::helper('formapi')->log('Failed to load CMS-page %s', $page);
+            Mage::helper('formapi')->log($this->__('Failed to load CMS-page %s', $page));
             return null;
         }
 
